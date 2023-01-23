@@ -1,12 +1,23 @@
-import React from "react";
-import "./App.css";
+import Forecast from "./components/Forecast";
+import Search from "./components/Search";
 
-function App() {
+import useForecast from "./hooks/useForecast";
+
+const App = (): JSX.Element => {
   return (
-    <h1 className="text-3xl font-bold underline text-red-600">
-      Simple React Typescript Tailwind Sample
-    </h1>
+    <video
+      autoPlay
+      loop
+      muted
+      className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+    >
+      <source
+        src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
+        type="video/mp4"
+      />
+      {/* {forecast ? <Forecast /> : <Search />} */}
+    </video>
   );
-}
+};
 
 export default App;
