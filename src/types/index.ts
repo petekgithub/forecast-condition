@@ -16,7 +16,6 @@ export type forecastType = {
       main: {
         feels_like: number;
         humidity: number;
-        pressure: number;
         temp: number;
         temp_max: number;
         temp_min: number;
@@ -36,8 +35,6 @@ export type forecastType = {
       clouds: {
         all: number;
       };
-      pop: number;
-      visibility: number;
     }
   ];
 };

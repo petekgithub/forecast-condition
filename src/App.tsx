@@ -8,16 +8,7 @@ const App = (): JSX.Element => {
     useForecast();
 
   return (
-    <video
-      autoPlay
-      loop
-      muted
-      className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
-    >
-      <source
-        src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
-        type="video/mp4"
-      />
+    <main className="flex justify-center items-center bg-blue-400 h-[100vh] w-full">
       {forecast ? (
         <Forecast data={forecast} />
       ) : (
@@ -29,7 +20,7 @@ const App = (): JSX.Element => {
           onSubmit={onSubmit}
         />
       )}
-    </video>
+    </main>
   );
 };
 
