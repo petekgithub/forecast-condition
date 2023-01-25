@@ -1,4 +1,14 @@
 import { forecastType } from "../types";
+import Sunrise from "../assets/images/sunrise2.png";
+import Sunset from "../assets/images/sunset2.png";
+
+import {
+  getHumidityValue,
+  getSunTime,
+  getWindDirection,
+  getPop,
+  getVisibilityValue,
+} from "../helpers";
 
 type Props = {
   data: forecastType;
@@ -29,7 +39,7 @@ const Forecast = ({ data }: Props): JSX.Element => {
           <h1 className="text-4xl font-extrabold">
             <Degree temp={Math.round(today.main.temp)} />
           </h1>
-          <p className="text-sm">
+          <p className="text-md">
             {today.weather[0].main} - {today.weather[0].description}
           </p>
         </section>
@@ -40,7 +50,7 @@ const Forecast = ({ data }: Props): JSX.Element => {
               key={i}
             >
               <p className="text-sm">
-                {i === 0 ? "Now" : new Date(item.dt * 1000).getHours()}
+                {i === 0 ? "Now" : `${new Date(item.dt * 1000).getHours()}:00`}
               </p>
               <img
                 src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
@@ -54,12 +64,14 @@ const Forecast = ({ data }: Props): JSX.Element => {
         </section>
         <section className="flex flex-wrap justify-between text-zinc-700">
           <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
-            {/* <Sunrise /> 
-            <span className="mt-2">{getSunTime(data.sunrise)}</span>*/}
+            <img src={Sunrise} alt="sunrise-img" />
+            <span className="mt-2">{getSunTime(data.sunrise)}</span>
+            <p className="text-indigo-900">Good Morning</p>
           </div>
           <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
-            {/* <Sunset />
-            <span className="mt-2">{getSunTime(data.sunset)}</span> */}
+            <img src={Sunset} alt="sunset-img" />
+            <span className="mt-2">{getSunTime(data.sunset)}</span>
+            <p className="text-indigo-900">Good Evening</p>
           </div>
         </section>
       </div>
