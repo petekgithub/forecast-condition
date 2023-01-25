@@ -1,0 +1,10 @@
+{
+  "icons": {
+    "Rain": "Rain.svg",
+    "Drizzle": "Drizzle.svg",
+    "Clouds": "Clouds.svg",
+    "Clear": "Clear.svg",
+    "Snow": "Snow.svg",
+    "Thunderstorm": "Thunderstorm.svg"
+  }
+}

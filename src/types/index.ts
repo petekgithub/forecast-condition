@@ -23,7 +23,7 @@ export type forecastType = {
       weather: [
         {
           main: string;
-          icon: string;
+          icon: `../assets/images`;
           description: string;
         }
       ];
