@@ -50,7 +50,7 @@ const Forecast = ({ data }: Props): JSX.Element => {
           </p>
         </section>
 
-        <section className="flex overflow-x-scroll mt-4 pb-2 mb-5">
+        <section className="flex overflow-x-scroll scrollbar-thumb-cyan-200 scrollbar-track-blue-900 scrollbar-thin h-32 mt-4 pb-2 mb-5 ">
           {data.list.map((item, i) => (
             <div
               className="inline-block text-center w-[50px] flex-shrink-0"
