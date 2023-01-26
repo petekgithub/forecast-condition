@@ -1,7 +1,7 @@
 const Feels = (): JSX.Element => (
   <svg
-    width="44px"
-    height="44px"
+    width="40px"
+    height="40px"
     viewBox="0 0 64 64"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
