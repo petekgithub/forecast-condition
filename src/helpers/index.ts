@@ -1,14 +1,14 @@
 export const getWindDirection = (deg: number): string => {
-  if (deg > 15 && deg <= 75) return "NE";
+  if (deg > 15 && deg <= 75) return "NorthEast";
 
-  if (deg > 76 && deg <= 105) return "E";
-  if (deg > 105 && deg <= 165) return "SE";
+  if (deg > 76 && deg <= 105) return "East";
+  if (deg > 105 && deg <= 165) return "SouthEast";
 
-  if (deg > 166 && deg <= 195) return "S";
-  if (deg > 195 && deg <= 255) return "SW";
+  if (deg > 166 && deg <= 195) return "South";
+  if (deg > 195 && deg <= 255) return "SouthWest";
 
-  if (deg > 255 && deg <= 285) return "W";
-  if (deg > 285 && deg <= 345) return "NW";
+  if (deg > 255 && deg <= 285) return "West";
+  if (deg > 285 && deg <= 345) return "NorthWest";
 
   return "N";
 };

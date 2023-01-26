@@ -1,6 +1,7 @@
 import { forecastType } from "../types";
 import Sunrise from "../assets/images/sunrise2.png";
 import Sunset from "../assets/images/sunset2.png";
+import IconWrapper from "./IconWrapper";
 
 import {
   getHumidityValue,
@@ -73,6 +74,26 @@ const Forecast = ({ data }: Props): JSX.Element => {
             <span className="mt-2">{getSunTime(data.sunset)}</span>
             <p className="text-indigo-900">Good Evening</p>
           </div>
+          {/* wind */}
+          <IconWrapper
+            icon="wind"
+            title="Wind"
+            info={`${Math.round(today.wind.speed)} km/h`}
+            description={`${getWindDirection(
+              Math.round(today.wind.deg)
+            )}, gusts ${today.wind.gust.toFixed(1)} km/h`}
+          />
+          {/* feels like */}
+          <IconWrapper
+            icon="feels"
+            title="Feels like"
+            info={<Degree temp={Math.round(today.main.feels_like)} />}
+            description={`Feels ${
+              Math.round(today.main.feels_like) < Math.round(today.main.temp)
+                ? "colder"
+                : "warmer"
+            }`}
+          />
         </section>
       </div>
     </div>
