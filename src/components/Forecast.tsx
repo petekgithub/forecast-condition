@@ -1,8 +1,6 @@
 import { forecastType } from "../types";
-import Sunrise from "../assets/images/sunrise2.png";
-import Sunset from "../assets/images/sunset2.png";
-import IconWrapper from "./IconWrapper";
-
+import Sunrise from "../assets/images/sunrise.png";
+import Sunset from "../assets/images/sunset.png";
 import {
   getHumidityValue,
   getSunTime,
@@ -10,6 +8,7 @@ import {
   getPop,
   getVisibilityValue,
 } from "../helpers";
+import IconWrapper from "./IconWrapper";
 
 type Props = {
   data: forecastType;
@@ -40,11 +39,18 @@ const Forecast = ({ data }: Props): JSX.Element => {
           <h1 className="text-4xl font-extrabold">
             <Degree temp={Math.round(today.main.temp)} />
           </h1>
-          <p className="text-md">
+
+          <p className="text-sm">
             {today.weather[0].main} - {today.weather[0].description}
           </p>
+
+          <p className="text-sm">
+            H: <Degree temp={Math.ceil(today.main.temp_max)} />
+            L: <Degree temp={Math.floor(today.main.temp_min)} />
+          </p>
         </section>
-        <section className="flex overflow-x-scroll scrollbar-thumb-cyan-200 scrollbar-track-blue-900 scrollbar-thin h-32 mt-4 pb-2 mb-5 ">
+
+        <section className="flex overflow-x-scroll mt-4 pb-2 mb-5">
           {data.list.map((item, i) => (
             <div
               className="inline-block text-center w-[50px] flex-shrink-0"
@@ -63,27 +69,28 @@ const Forecast = ({ data }: Props): JSX.Element => {
             </div>
           ))}
         </section>
+
         <section className="flex flex-wrap justify-between text-zinc-700">
-          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
+          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-ls rounded drop-shadow-lg py-4 mb-5">
             <img src={Sunrise} alt="sunrise-img" />
             <span className="mt-2">{getSunTime(data.sunrise)}</span>
             <p className="text-indigo-900">Good Morning</p>
           </div>
-          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
+          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-ls rounded drop-shadow-lg py-4 mb-5">
             <img src={Sunset} alt="sunset-img" />
             <span className="mt-2">{getSunTime(data.sunset)}</span>
             <p className="text-indigo-900">Good Evening</p>
           </div>
-          {/* wind */}
+
           <IconWrapper
             icon="wind"
             title="Wind"
             info={`${Math.round(today.wind.speed)} km/h`}
             description={`${getWindDirection(
               Math.round(today.wind.deg)
-            )}, gusts ${today.wind.gust.toFixed(1)} km/h`}
+            )}, gusts 
+            ${today.wind.gust.toFixed(1)} km/h`}
           />
-          {/* feels like */}
           <IconWrapper
             icon="feels"
             title="Feels like"
@@ -93,6 +100,18 @@ const Forecast = ({ data }: Props): JSX.Element => {
                 ? "colder"
                 : "warmer"
             }`}
+          />
+          <IconWrapper
+            icon="humidity"
+            title="Humidity"
+            info={`${today.main.humidity} %`}
+            description={getHumidityValue(today.main.humidity)}
+          />
+          <IconWrapper
+            icon="visibility"
+            title="Visibility"
+            info={`${(today.visibility / 1000).toFixed()} km`}
+            description={getVisibilityValue(today.visibility)}
           />
         </section>
       </div>

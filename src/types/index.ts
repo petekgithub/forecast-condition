@@ -35,6 +35,7 @@ export type forecastType = {
       clouds: {
         all: number;
       };
+      visibility: number;
     }
   ];
 };

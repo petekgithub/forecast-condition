@@ -20,7 +20,7 @@ const Search = ({
   return (
     <main className="min-h-screen flex items-stretch text-black ">
       <div className="lg:flex w-1/2 hidden bg-teal-200 bg-no-repeat bg-cover relative items-center">
-        <img className="scale-200" src={Graphic} alt="SVG as an image" />
+        <img className="scale-200" src={Graphic} alt="SVG as an img" />
       </div>
       <section className="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0">
         <div className="flex-col">
