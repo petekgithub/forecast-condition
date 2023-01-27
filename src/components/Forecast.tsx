@@ -26,11 +26,18 @@ const Forecast = ({ data }: Props): JSX.Element => {
 
   return (
     <div
-      className="w-full md:max-w-[500px] py-4 md:py-4
+      className="w-full md:max-w-[520px] py-4 md:py-4
     md:px-10 lg:px-24 h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls
-    rounded drop-shadow-lg"
+    rounded drop-shadow-lg relative"
     >
-      <div className="mx-auto w-[300px]">
+      <button
+        type="button"
+        //  onClick={() => navigate("/")}
+        className="absolute left-0 top-0 h-16 w-16 rounded bg-cyan-200 m-1 border-2 border-sky-900"
+      >
+        Search Again
+      </button>
+      <div className="mx-auto mt-12 w-[300px]">
         <section className="text-center">
           <h2 className="text-2xl font-black">
             {data.name}
@@ -40,13 +47,13 @@ const Forecast = ({ data }: Props): JSX.Element => {
             <Degree temp={Math.round(today.main.temp)} />
           </h1>
 
-          <p className="text-sm">
+          <p className="text-sm mt-3">
             {today.weather[0].main} - {today.weather[0].description}
           </p>
 
-          <p className="text-sm">
-            H: <Degree temp={Math.ceil(today.main.temp_max)} />
-            L: <Degree temp={Math.floor(today.main.temp_min)} />
+          <p className="text-sm mt-1">
+            H: <Degree temp={Math.ceil(today.main.temp_max)} /> L:{" "}
+            <Degree temp={Math.floor(today.main.temp_min)} />
           </p>
         </section>
 
