@@ -5,10 +5,11 @@ import {
   getHumidityValue,
   getSunTime,
   getWindDirection,
-  getPop,
   getVisibilityValue,
 } from "../helpers";
 import IconWrapper from "./IconWrapper";
+//import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 type Props = {
   data: forecastType;
@@ -23,6 +24,7 @@ const Degree = ({ temp }: { temp: number }): JSX.Element => (
 
 const Forecast = ({ data }: Props): JSX.Element => {
   const today = data.list[0];
+  //const navigate = useNavigate();
 
   return (
     <div
@@ -30,9 +32,17 @@ const Forecast = ({ data }: Props): JSX.Element => {
     md:px-10 lg:px-24 h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls
     rounded drop-shadow-lg relative"
     >
+      <Link to={"/search"}>
+        <button
+          type="button"
+          className="absolute left-0 top-0 h-16 w-16 rounded bg-cyan-200 m-1 border-2 border-sky-900"
+        >
+          Search Again
+        </button>
+      </Link>
       <button
         type="button"
-        //  onClick={() => navigate("/")}
+        //onClick={() => navigate("/")}
         className="absolute left-0 top-0 h-16 w-16 rounded bg-cyan-200 m-1 border-2 border-sky-900"
       >
         Search Again

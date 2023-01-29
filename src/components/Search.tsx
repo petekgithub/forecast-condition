@@ -1,6 +1,7 @@
 import { ChangeEvent } from "react";
 import { optionType } from "../types";
 import Graphic from "../assets/Icons/Weather-rafiki.svg";
+import { Link } from "react-router-dom";
 
 type Props = {
   term: string;
@@ -50,12 +51,14 @@ const Search = ({
               </li>
             ))}
           </ul>
-          <button
-            className="rounded-r-md border-2 z-50 border-zinc-800 hover:border-blue-900 hover:text-black text-zinc-200 px-2 py-2 cursor-pointer"
-            onClick={onSubmit}
-          >
-            Search
-          </button>
+          <Link to={"/forecast"}>
+            <button
+              className="rounded-r-md border-2 z-50 border-zinc-800 hover:border-blue-900 hover:text-black text-zinc-200 px-2 py-2 cursor-pointer"
+              onClick={onSubmit}
+            >
+              Search
+            </button>
+          </Link>
         </div>
       </section>
     </main>
