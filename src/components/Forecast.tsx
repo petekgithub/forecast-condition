@@ -32,21 +32,15 @@ const Forecast = ({ data }: Props): JSX.Element => {
     md:px-10 lg:px-24 h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls
     rounded drop-shadow-lg relative"
     >
-      <Link to={"/search"}>
+      <Link to={"/"}>
         <button
           type="button"
+          //onClick={() => navigate("/")}
           className="absolute left-0 top-0 h-16 w-16 rounded bg-cyan-200 m-1 border-2 border-sky-900"
         >
           Search Again
         </button>
       </Link>
-      <button
-        type="button"
-        //onClick={() => navigate("/")}
-        className="absolute left-0 top-0 h-16 w-16 rounded bg-cyan-200 m-1 border-2 border-sky-900"
-      >
-        Search Again
-      </button>
       <div className="mx-auto mt-12 w-[300px]">
         <section className="text-center">
           <h2 className="text-2xl font-black">
