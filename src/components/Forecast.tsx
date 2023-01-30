@@ -8,7 +8,6 @@ import {
   getVisibilityValue,
 } from "../helpers";
 import IconWrapper from "./IconWrapper";
-//import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -28,7 +27,6 @@ const Forecast = ({ data }: Props): JSX.Element => {
   }
 
   const today = data.list[0];
-  //const navigate = useNavigate();
 
   return (
     <div
@@ -39,7 +37,6 @@ const Forecast = ({ data }: Props): JSX.Element => {
       <Link to={"/"}>
         <button
           type="button"
-          //onClick={() => navigate("/")}
           className="absolute left-0 top-0 h-16 w-16 rounded bg-cyan-200 m-1 border-2 border-sky-900"
         >
           Search Again
