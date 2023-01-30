@@ -12,7 +12,7 @@ import IconWrapper from "./IconWrapper";
 import { Link } from "react-router-dom";
 
 type Props = {
-  data: forecastType;
+  data: forecastType | null;
 };
 
 const Degree = ({ temp }: { temp: number }): JSX.Element => (
@@ -23,6 +23,10 @@ const Degree = ({ temp }: { temp: number }): JSX.Element => (
 );
 
 const Forecast = ({ data }: Props): JSX.Element => {
+  if (!data) {
+    return <div>No Data</div>
+  }
+
   const today = data.list[0];
   //const navigate = useNavigate();
 
