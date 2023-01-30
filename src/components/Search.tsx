@@ -36,7 +36,7 @@ const Search = ({
           <input
             type="text"
             value={term}
-            className="px-14 py-1 rounded-l-md border-2 border-blue-400"
+            className="ml-6 w-56 py-1 rounded-l-md border-2 border-blue-400"
             onChange={onInputChange}
           />
           <ul className="absolute top-10 bg-blue-200 ml-1 rounded-b-md">
