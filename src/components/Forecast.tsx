@@ -23,10 +23,15 @@ const Degree = ({ temp }: { temp: number }): JSX.Element => (
 
 const Forecast = ({ data }: Props): JSX.Element => {
   if (!data) {
-    return <div>No Data</div>
+    return <div>No Data</div>;
   }
 
   const today = data.list[0];
+
+  const handleClick = () => {
+    // 👇️ clear input value
+    ("");
+  };
 
   return (
     <div
@@ -37,11 +42,13 @@ const Forecast = ({ data }: Props): JSX.Element => {
       <Link to={"/"}>
         <button
           type="button"
+          onClick={handleClick}
           className="absolute left-0 top-0 h-16 w-16 rounded bg-cyan-200 m-1 border-2 border-sky-900"
         >
           Search Again
         </button>
       </Link>
+
       <div className="mx-auto mt-12 w-[300px]">
         <section className="text-center">
           <h2 className="text-2xl font-black">
