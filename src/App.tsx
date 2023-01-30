@@ -11,10 +11,8 @@ const App = (): JSX.Element => {
     <BrowserRouter>
       <main className="flex justify-center items-center bg-blue-400 h-[100vh] w-full">
         <Routes>
-          {forecast ? (
-            <Route path="/forecast" element={<Forecast data={forecast} />} />
-          ) : (
-            <Route
+          <Route path="/forecast" element={<Forecast data={forecast} />} />
+          <Route
               path="/"
               element={
                 <Search
@@ -26,7 +24,6 @@ const App = (): JSX.Element => {
                 />
               }
             />
-          )}
         </Routes>
       </main>
     </BrowserRouter>
