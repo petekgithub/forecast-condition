@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 
 type Props = {
   data: forecastType | null;
+  term: string;
+  setTerm: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Degree = ({ temp }: { temp: number }): JSX.Element => (
@@ -21,7 +23,7 @@ const Degree = ({ temp }: { temp: number }): JSX.Element => (
   </span>
 );
 
-const Forecast = ({ data }: Props): JSX.Element => {
+const Forecast = ({ term, setTerm, data }: Props): JSX.Element => {
   if (!data) {
     return <div>No Data</div>;
   }
@@ -29,8 +31,7 @@ const Forecast = ({ data }: Props): JSX.Element => {
   const today = data.list[0];
 
   const handleClick = () => {
-    // 👇️ clear input value
-    ("");
+    setTerm("");
   };
 
   return (
@@ -39,7 +40,11 @@ const Forecast = ({ data }: Props): JSX.Element => {
     md:px-10 lg:px-24 h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls
     rounded drop-shadow-lg relative"
     >
-      <Link to={"/"}>
+      <Link
+        to={{
+          pathname: "/",
+        }}
+      >
         <button
           type="button"
           onClick={handleClick}
