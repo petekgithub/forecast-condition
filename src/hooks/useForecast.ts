@@ -41,9 +41,9 @@ const useForecast = () => {
     getSearchOptions(value);
   };
 
-  useEffect(() => {
-    setTerm("");
-  }, []);
+  // useEffect(() => {
+  //   setTerm("");
+  // }, []);
 
   // 2nd fetch
   const getForecast = (city: optionType) => {
