@@ -1,6 +1,6 @@
 ## Weather Application
 
-[OpenWeatherAPI] was used in this project (https://openweathermap.org/api)
+[OpenWeatherAPI](https://openweathermap.org/api) was used in this project.
 
 ![Screenshot](screenshot.png)
 
