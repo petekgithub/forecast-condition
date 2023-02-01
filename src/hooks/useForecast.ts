@@ -6,7 +6,7 @@ const useForecast = () => {
   const [city, setCity] = useState<optionType | null>(null);
   const [forecast, setForecast] = useState<forecastType | null>(null);
   const [options, setOptions] = useState<[]>([]);
-  const apiKey = process.env.API_KEY;
+  const apiKey = "ff0f80747b30d130ec9e8c2d2d2a51eb";
 
   //first fetch
   const getSearchOptions = (value: string) => {
