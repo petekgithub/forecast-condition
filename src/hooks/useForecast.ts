@@ -93,6 +93,7 @@ const useForecast = () => {
 
   return {
     term,
+    setTerm,
     options,
     forecast,
     onOptionSelect,
