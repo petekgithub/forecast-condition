@@ -6,13 +6,12 @@ const useForecast = () => {
   const [city, setCity] = useState<optionType | null>(null);
   const [forecast, setForecast] = useState<forecastType | null>(null);
   const [options, setOptions] = useState<[]>([]);
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   //first fetch
   const getSearchOptions = (value: string) => {
     fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
-        process.env.REACT_APP_API_KEY
-      }`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${apiKey}`
     )
       .then((res) => {
         if (!res.ok) {
@@ -41,14 +40,10 @@ const useForecast = () => {
     getSearchOptions(value);
   };
 
-  // useEffect(() => {
-  //   setTerm("");
-  // }, []);
-
   // 2nd fetch
   const getForecast = (city: optionType) => {
     fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${apiKey}`
     )
       .then((res) => {
         if (!res.ok) {
