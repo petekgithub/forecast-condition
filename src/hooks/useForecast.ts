@@ -9,28 +9,32 @@ const useForecast = () => {
 
   //first fetch
   const getSearchOptions = (value: string) => {
-    fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
-        process.env.API_KEY
-      }`
-    )
-      .then((res) => {
-        if (!res.ok) {
-          switch (res.status) {
-            case 400:
-              break;
-            case 401:
-              break;
-            case 404:
-              break;
-            case 500:
-              break;
+    try {
+      fetch(
+        `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
+          process.env.API_KEY
+        }`
+      )
+        .then((res) => {
+          if (!res.ok) {
+            switch (res.status) {
+              case 400:
+                break;
+              case 401:
+                break;
+              case 404:
+                break;
+              case 500:
+                break;
+            }
           }
-        }
-        return res.json();
-      })
-      .then((data) => setOptions(data));
-    //.catch((e) => console.log(e));
+          return res.json();
+        })
+        .then((data) => setOptions(data));
+      //.catch((e) => console.log(e));
+    } catch (error) {
+      console.log("fewtch error");
+    }
   };
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,10 +44,6 @@ const useForecast = () => {
     if (value === "") return;
     getSearchOptions(value);
   };
-
-  // useEffect(() => {
-  //   setTerm("");
-  // }, []);
 
   // 2nd fetch
   const getForecast = (city: optionType) => {
