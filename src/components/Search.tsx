@@ -39,7 +39,7 @@ const Search = ({
             className="ml-6 w-56 py-1 rounded-l-md border-2 border-blue-400"
             onChange={onInputChange}
           />
-          <ul className="absolute top-10 bg-blue-200 ml-1 rounded-b-md">
+          <ul className="absolute top-10 bg-blue-200 ml-6 rounded-b-md">
             {options.map((option: optionType, index: number) => (
               <li key={option.name + "-" + index}>
                 <button
