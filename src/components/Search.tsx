@@ -27,7 +27,7 @@ const Search = ({
         <div className="flex-col">
           <h1 className="text-8xl text-neutral-800">Weather Condition</h1>
           <p className="text-neutral-900 mt-4 text-lg">
-            Write the city you are curious about and find out the current
+            Enter the city you are curious about and find out the current
             weather.
           </p>
         </div>
